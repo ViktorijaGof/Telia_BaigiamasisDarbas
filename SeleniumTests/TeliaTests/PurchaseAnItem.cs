@@ -17,17 +17,21 @@ namespace SeleniumTests.TeliaTests
 
         public void AddingItemToChart()
         {
-
-            string expectedResult = "Samsung Galaxy S23+";
             Buttons.clickEParduotuve();
             Buttons.clickTelefonai();
-            Buttons.selectFirstItem();
+            string expectedResult = Buttons.GetItemName();
+            Buttons.ClickonFirstItem();
             Buttons.checkBePlano();
             Buttons.clickUzsakytiTelefonaBePlano();
             Buttons.clickUzsakytiUzsakymoSuvestine();
-            string actualResult = Buttons.GetText();
+            string actualResult = Buttons.GetItemName();
             Assert.AreEqual(expectedResult, actualResult);
+        }
 
+        [TearDown]
+
+        public void TearDown()
+        {
             Driver.ShutdownDriver();
         }
     }
