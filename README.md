@@ -31,12 +31,8 @@
 | 4.1.2.      | Type "Vilnius" and click on given selection.                      |                                                                                      |
 | 4.1.3.      | Select first store in the list.                                   |                                                                                      |
 | 4.1.4.      | Click on "Kaip nuvykti?" button.                                  |This action should lead to the Google maps page.                                      |
-| 5.          | Help by phone                                                     |                                                                                      |
-| 5.1.        | Finding customer service number.                                  |                                                                                      |                              
+| 5.          | Help                                                              |                                                                               | 5.1.        | Finding information about a problem.                              |                                                                                                    
 | 5.1.1.      | Click on "Pagalba".                                               |This action should lead to the Help desk page.                                        |
-| 5.1.2.      | Click on "Pagalba telefonu".                                      |                                                                                      |
-| 5.2.        | Finding information about a problem.                              |                                                                                      |                           
-| 5.2.1.      | Click on "Pagalba".                                               |This action should lead to the Help desk page.                                        |
-| 5.2.2.      | Click on "Sutrikimai".                                            |This action should lead to the Service's type list page.                              |
-| 5.2.3.      | Click on "Namų internetas".                                       |This action should lead to the Problem list page.                                     |
-| 5.2.4.      | Click on first hyperlink below "Bendra informacija".              |This action should lead to the Information about problem page.                        |    
+| 5.1.2.      | Click on "Sutrikimai".                                            |This action should lead to the Service's type list page.                              |
+| 5.1.3.      | Click on "Namų internetas".                                       |This action should lead to the Problem list page.                                     |
+| 5.1.4.      | Click on first hyperlink below "Bendra informacija".              |This action should lead to the Information about problem page.                        |    
