@@ -14,7 +14,7 @@
 | 1.1.6.      | Click on "Užsakyti".                                              |This action should lead to the Order page, where person needs to log in / sign        |
 | 2.          | Service order request                                             |                                                                                      |
 | 2.1.        | Selecting service and sending an order request.                   |                                                                                      |
-| 2.1.1.      | Click on „Paslaugos“ section.                     .               |                                                                                      | 
+| 2.1.1.      | Click on „Paslaugos“ section.                                     |                                                                                      | 
 | 2.1.2.      | Click on "Internetas".                                            |This action should lead to the Internet type list page.                               |
 | 2.1.3.      | Click on "Daugiau" below "Šviesolaidis - namams mieste".          |This action should lead to the Internet plans list page.                              |
 | 2.1.4.      | Select first plan and click on "Domina".                          |This action should lead to the pop-up window for sending order request.               |
@@ -26,7 +26,7 @@
 | 3.1.4.      | Click on "Galiojantys namų interneto paslaugų teikimo dokumentai".|This action should lead to the Selected service's contracts and regulations list page.|
 | 3.1.5.      | Click on first hyperlink below "Paslaugų teikimo dokumentai".     |This action should lead to the Selected service's contracts and regulations page.     |
 | 4.          | Stores                                                            |                                                                                      |
-| 4.1.        | Finding a store's adress and working hours.                       |                                                                                      |
+| 4.1.        | Finding a store's adress                                          |                                                                                      |
 | 4.1.1.      | Click on "Salonai".                                               |This action should lead to the Stores' map page.                                      |
 | 4.1.2.      | Type "Vilnius" and click on given selection.                      |                                                                                      |
 | 4.1.3.      | Select first store in the list.                                   |                                                                                      |
