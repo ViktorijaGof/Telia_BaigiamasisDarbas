@@ -1,38 +1,31 @@
 ﻿using NUnit.Framework;
-
+using SeleniumFramework;
+using SeleniumFramework.Pages;
 
 namespace SeleniumTests.TeliaTests
 {
-    internal class PurchaseAnItem
+    public class PurchaseAnItem : BaseTest
     {
         [SetUp]
 
-        public void SetUp()
+        public void Open()
         {
-            Driver.InitializeDriver();
             Buttons.Open();
         }
 
         [Test]
 
-        public void AddingItemToChart()
+        public void AddItemToChart()
         {
+            string expectedResult = "Samsung Galaxy S22";
             Buttons.clickEParduotuve();
             Buttons.clickTelefonai();
-            string expectedResult = Buttons.GetItemName();
             Buttons.ClickonFirstItem();
             Buttons.checkBePlano();
             Buttons.clickUzsakytiTelefonaBePlano();
             Buttons.clickUzsakytiUzsakymoSuvestine();
-            string actualResult = Buttons.GetItemName();
+            string actualResult = TextBox.GetItemName(); 
             Assert.AreEqual(expectedResult, actualResult);
-        }
-
-        [TearDown]
-
-        public void TearDown()
-        {
-            Driver.ShutdownDriver();
         }
     }
 }

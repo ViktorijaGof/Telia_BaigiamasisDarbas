@@ -1,19 +1,15 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SeleniumFramework;
+using SeleniumFramework.Pages;
 
 namespace SeleniumTests.TeliaTests
 {
-    public class ServiceOrderRequest
+    public class ServiceOrderRequest : BaseTest
     {
         [SetUp]
 
-        public void SetUp()
-        {
-            Driver.InitializeDriver();
+        public void Open()
+        {            
             Buttons.Open();
         }
 
@@ -21,19 +17,13 @@ namespace SeleniumTests.TeliaTests
 
         public void SelectServiceAndSendOrderRequest()
         {
-            //O KĄ ČIA REIKTŲ PALYGINTI????
+            string expectedResult = "Gaukite „Telia“ pasiūlymą";
             Buttons.clickPaslaugos();
             Buttons.clickInternetas();
             Buttons.clickDaugiau();
             Buttons.ClickDomina();
-            //CloseWindow.CloseUserInfoRequestWindow()  sukurti class gal?
-        }
-
-        [TearDown]
-
-        public void TearDown()
-        {
-            Driver.ShutdownDriver();
+            string actualResult = TextBox.GetServiceRequestHeading();
+            Assert.AreEqual(expectedResult, actualResult);
         }
     }
 }

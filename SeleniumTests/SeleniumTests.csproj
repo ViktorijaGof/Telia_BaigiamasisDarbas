@@ -49,11 +49,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectServiceAndSendOrderRequest.cs" />
+    <Compile Include="TeliaTests\BaseTest.cs" />
+    <Compile Include="TeliaTests\Contracts and regulations.cs" />
     <Compile Include="TeliaTests\PurchaseAnItem.cs" />
+    <Compile Include="TeliaTests\ServiceOrderRequest.cs" />
+    <Compile Include="TeliaTests\Stores.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SeleniumFramework\SeleniumFramework.csproj">
+      <Project>{37f4fc96-53ce-47b3-a087-f018d157a29d}</Project>
+      <Name>SeleniumFramework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
