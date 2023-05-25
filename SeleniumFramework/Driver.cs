@@ -13,15 +13,7 @@ namespace SeleniumFramework
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-            try
-            {
-                driver.Navigate().GoToUrl(OpenPage);
-                driver.Manage().Cookies.AddCookie(new Cookie("key", "value"));
-            }
-            finally
-            {
-                driver.Quit();
-            }
+           
         }
         internal static IWebDriver GetDriver()
         {

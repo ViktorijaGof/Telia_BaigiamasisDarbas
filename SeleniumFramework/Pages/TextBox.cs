@@ -11,8 +11,15 @@ namespace SeleniumFramework.Pages
     {
         public static string GetItemName()
 
-        {
+        {                               
             string locator = "//*[contains(@class,'cart-box-product-card__title cart-box-product-card__title--bold')]";
+            return Common.GetElementText(locator);
+
+        }
+
+        public static string GetItemPrice()
+        {
+            string locator = "//*[contains(@class,'fade-enter')]";
             return Common.GetElementText(locator);
         }
 
@@ -21,14 +28,6 @@ namespace SeleniumFramework.Pages
         {
             string locator = "//*[contains(@class,'form-block__title')]";
             return Common.GetElementText(locator);
-        }
-
-       // public static string GetDocumentHeading()
-        //{
-            //string locator = "//*[contains(@class,'form-block__title')]";
-            //return Common.GetElementText(locator);
-            //Ar PDF formatą gali nuskaityti?
-       // }
-
+        }     
     }
 }

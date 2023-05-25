@@ -1,4 +1,5 @@
 ﻿
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Net.NetworkInformation;
 
@@ -11,6 +12,12 @@ namespace SeleniumFramework.Pages
             Driver.OpenPage("https://www.telia.lt/privatiems");
         }
 
+        public static void clickAccept()
+        {
+            string locator = "(//*[contains(@class,'btn btn-primary')])[6]";
+            Common.Click(locator);
+           // System.Threading.Thread.Sleep(700);   
+        }
 
         public static void clickEParduotuve()
         {
@@ -27,7 +34,7 @@ namespace SeleniumFramework.Pages
         public static void ClickonFirstItem()
         {
             string locator = "(//*[contains(@class,'mobiles-product-card__t')])[1]";
-            Common.Click(locator);
+            Common.Click(locator);            
         }
 
         public static void checkBePlano()
@@ -40,12 +47,14 @@ namespace SeleniumFramework.Pages
         {
             string locator = "(//*[contains(@class,'link-icon__text')])[2]";
             Common.Click(locator);
+            System.Threading.Thread.Sleep(500);
         }
 
         public static void clickUzsakytiUzsakymoSuvestine()
         {
             string locator = "(//*[contains(@class,'link-icon link-icon--no-float')])[2]";
             Common.Click(locator);
+            System.Threading.Thread.Sleep(500);
         }
 
         public static void clickPaslaugos()
@@ -101,5 +110,15 @@ namespace SeleniumFramework.Pages
             string locator = "//*[@id='paslaugu-teikimo-dokumentai']/div/ul/li[1]/a";
             Common.Click(locator);
         }
+
+        public static void AcceptCookies()
+        {
+            string locator = "(//*[contains(@class,'btn btn-primary')])[6]";
+            //Common.WaitForElementToBeVisible(locator);            
+            System.Threading.Thread.Sleep(700);
+            Common.Click(locator);
+            
+        }
+
     }
 }

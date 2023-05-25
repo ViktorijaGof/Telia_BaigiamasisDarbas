@@ -11,21 +11,27 @@ namespace SeleniumTests.TeliaTests
         public void Open()
         {
             Buttons.Open();
+
         }
 
         [Test]
 
         public void AddItemToChart()
         {
-            string expectedResult = "Samsung Galaxy S22";
+            string expectedItemName = "Samsung Galaxy S22";
+            string expectedPrice = "634,25";
+            Buttons.AcceptCookies(); //sukūrus wait nebeatidaro, tai kol kas naudoju clickAccept
+            //Buttons.clickAccept();
             Buttons.clickEParduotuve();
             Buttons.clickTelefonai();
             Buttons.ClickonFirstItem();
             Buttons.checkBePlano();
             Buttons.clickUzsakytiTelefonaBePlano();
             Buttons.clickUzsakytiUzsakymoSuvestine();
-            string actualResult = TextBox.GetItemName(); 
-            Assert.AreEqual(expectedResult, actualResult);
+            string actualItemName = TextBox.GetItemName();
+            string actualPrice  = TextBox.GetItemPrice();
+            Assert.AreEqual(expectedItemName, actualItemName);
+            Assert.AreEqual(expectedPrice, actualPrice);
         }
     }
 }

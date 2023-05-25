@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 
 namespace SeleniumFramework.Pages
@@ -24,5 +25,12 @@ namespace SeleniumFramework.Pages
         {
             return GetElement(locator).Text;
         }
+
+        //internal static void WaitForElementToBeVisible(string locator)
+       // {
+            //System.Threading.Thread.Sleep(700);
+            //WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(7));
+            //wait.Until(d => d.FindElement(By.XPath(locator)).Displayed);         
+        //}
     }
 }
