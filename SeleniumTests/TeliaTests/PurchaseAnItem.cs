@@ -10,8 +10,8 @@ namespace SeleniumTests.TeliaTests
 
         public void Open()
         {
-            Buttons.Open();
-
+            Homepage.Open();
+            Homepage.AcceptCookies();
         }
 
         [Test]
@@ -19,17 +19,15 @@ namespace SeleniumTests.TeliaTests
         public void AddItemToChart()
         {
             string expectedItemName = "Samsung Galaxy S22";
-            string expectedPrice = "634,25";
-            Buttons.AcceptCookies(); //sukūrus wait nebeatidaro, tai kol kas naudoju clickAccept
-            //Buttons.clickAccept();
+            string expectedPrice = "634,25 €";
             Buttons.clickEParduotuve();
             Buttons.clickTelefonai();
             Buttons.ClickonFirstItem();
-            Buttons.checkBePlano();
+            Buttons.ScrollAndClickBePlano();
             Buttons.clickUzsakytiTelefonaBePlano();
-            Buttons.clickUzsakytiUzsakymoSuvestine();
             string actualItemName = TextBox.GetItemName();
             string actualPrice  = TextBox.GetItemPrice();
+            Buttons.clickUzsakytiUzsakymoSuvestine();
             Assert.AreEqual(expectedItemName, actualItemName);
             Assert.AreEqual(expectedPrice, actualPrice);
         }

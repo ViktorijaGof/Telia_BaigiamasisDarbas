@@ -1,24 +1,8 @@
 ﻿
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Net.NetworkInformation;
-
 namespace SeleniumFramework.Pages
 {
     public class Buttons
-    {
-        public static void Open()
-        {
-            Driver.OpenPage("https://www.telia.lt/privatiems");
-        }
-
-        public static void clickAccept()
-        {
-            string locator = "(//*[contains(@class,'btn btn-primary')])[6]";
-            Common.Click(locator);
-           // System.Threading.Thread.Sleep(700);   
-        }
-
+    {              
         public static void clickEParduotuve()
         {
             string locator = "(//*[contains(@class,'LinkItemstyles__LinkAnchor')])[2]";
@@ -34,27 +18,29 @@ namespace SeleniumFramework.Pages
         public static void ClickonFirstItem()
         {
             string locator = "(//*[contains(@class,'mobiles-product-card__t')])[1]";
-            Common.Click(locator);            
-        }
-
-        public static void checkBePlano()
-        {
-            string locator = "((//*[contains(@class,'selector-button-group__variant ')])[2]";
+            Common.WaitForElementIsVisible(locator);
             Common.Click(locator);
-        }              
+        }
+               
+        public static void ScrollAndClickBePlano()
+        {
+            string locator = "(//*[@data-test='b2c_contract_type_selector']//*[contains(@class,'selector-button-group__variant') and not(contains(@class,'container'))])[2]";
+            Common.WaitForElementIsVisible(locator);
+            Common.ScrollToBeVisibleAndClick(locator);
+        }
 
         public static void clickUzsakytiTelefonaBePlano()
         {
             string locator = "(//*[contains(@class,'link-icon__text')])[2]";
+            Common.WaitForElementIsVisible(locator);
             Common.Click(locator);
-            System.Threading.Thread.Sleep(500);
         }
 
         public static void clickUzsakytiUzsakymoSuvestine()
         {
             string locator = "(//*[contains(@class,'link-icon link-icon--no-float')])[2]";
+            Common.WaitForElementIsVisible(locator);
             Common.Click(locator);
-            System.Threading.Thread.Sleep(500);
         }
 
         public static void clickPaslaugos()
@@ -65,19 +51,29 @@ namespace SeleniumFramework.Pages
 
         public static void clickInternetas()
         {
-            string locator = "((//*[contains(@class,'DropdownItemLinkstyles__DropdownItemText-')])[4]";
+            string locator = "(//*[contains(@class,'DropdownItemLinkstyles__DropdownItemText-')])[4]";
             Common.Click(locator);
         }
 
-        public static void clickDaugiau()
+
+        public static void ScrollAndClickDaugiau()
         {
             string locator = "(//*[contains(@class,'btn btn-primary')])[1]";
+            Common.WaitForElementIsVisible(locator); 
+            Common.ScrollToBeVisibleAndClick(locator);
+        }
+        
+        public static void ClickNeturiu()
+        {
+            string locator = "(//*[contains(@data-test,'action--button')])[6]";
+            Common.WaitForElementIsVisible(locator); 
             Common.Click(locator);
         }
 
         public static void ClickDomina()
         {
-            string locator = "(//*[contains(@class,'telia-button')])[1]";
+            string locator = "//*[contains(@class,'telia-button telia-button--primary')]";//NEPAKLIKINA
+            Common.WaitForElementIsVisible(locator); 
             Common.Click(locator);
         }
 
@@ -86,39 +82,52 @@ namespace SeleniumFramework.Pages
             string locator = "(//*[contains(@class,'LinkItemstyles__LinkAnchor')])[4]";
             Common.Click(locator); 
         }
-
-        public static void clickSutartysIrSaskaitos()
+       
+        public static void ClickTeliaSalonai()
         {
-            string locator = "(//*[contains(@class,'QuickLinksstyles__QuickLinksLink')])[5]";
+            string locator = "(//*[contains(@class, 'QuickLinksstyles__QuickLinksAnchor')])[3]";
+            Common.WaitForElementIsVisible(locator);
+            Common.Click(locator); 
+        }
+
+        public static void ClickCityOption()
+        {
+            string locator = "//*[contains(@class,'retail-search__search-item')]";
+            Common.WaitForElementIsVisible(locator); 
             Common.Click(locator);
         }
 
-        public static void ClickPaslauguTeikimoDokumentai()
+        public static void ClckFirstStore()
         {
-            string locator = "//*[contains(@class,'QuickLinksstyles__QuickLinksLink')])[1]";
-            Common.Click(locator);
-        }
-              
-        public static void GaliojantysNamuInternetoPaslauguTeikimoDokumentai()
-        {
-            string locator = "//*[contains(@class,'ExpandableGroupstyles__ExpandableGroupCh')])[1]";
+            string locator = "(//*[contains(@class,'card-salon-compact__shop')])[1]";
+            Common.WaitForElementIsVisible(locator);
             Common.Click(locator);
         }
 
-        public static void clickFirstHyperlinkBelowPaslauguteikimoDokumentai()
+        public static void ClickSutrikimai()
         {
-            string locator = "//*[@id='paslaugu-teikimo-dokumentai']/div/ul/li[1]/a";
+            string locator = "(//*[contains(@class,'QuickLinksstyles__QuickLinksLink-sc-totlx2-5 culdSM')])[8]";
+            Common.WaitForElementIsVisible(locator); 
             Common.Click(locator);
         }
 
-        public static void AcceptCookies()
+        public static void ClickNamuInternetas()
         {
-            string locator = "(//*[contains(@class,'btn btn-primary')])[6]";
-            //Common.WaitForElementToBeVisible(locator);            
-            System.Threading.Thread.Sleep(700);
-            Common.Click(locator);
-            
+            string locator = "(//*[contains(@class,'QuickLinksstyles__QuickLinksLink-sc-totlx2-5 culdSM')])[1]";
+            Common.WaitForElementIsVisible(locator); 
+            Common.Click(locator); 
         }
 
+        public static void clickLaikrodžiaiIrApyrankės()
+        {
+            string locator = "(//*[contains(@class,'DropdownItemLinkstyles')])[13]";
+            Common.Click(locator);
+        }
+
+        public static void ScrollAndCheckJuoda()
+        {
+            string locator = "(//*[contains(@class,'facet-checkbox js-facet-checkbox')])[13]";
+            Common.ScrollToBeVisibleAndClick(locator);
+        }
     }
 }

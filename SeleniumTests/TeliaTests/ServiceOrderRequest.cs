@@ -9,8 +9,9 @@ namespace SeleniumTests.TeliaTests
         [SetUp]
 
         public void Open()
-        {            
-            Buttons.Open();
+        {
+            Homepage.Open();
+            Homepage.AcceptCookies();
         }
 
         [Test]
@@ -20,7 +21,8 @@ namespace SeleniumTests.TeliaTests
             string expectedResult = "Gaukite „Telia“ pasiūlymą";
             Buttons.clickPaslaugos();
             Buttons.clickInternetas();
-            Buttons.clickDaugiau();
+            Buttons.ScrollAndClickDaugiau();
+            Buttons.ClickNeturiu();
             Buttons.ClickDomina();
             string actualResult = TextBox.GetServiceRequestHeading();
             Assert.AreEqual(expectedResult, actualResult);

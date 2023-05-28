@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using System;
 
@@ -26,11 +27,47 @@ namespace SeleniumFramework.Pages
             return GetElement(locator).Text;
         }
 
-        //internal static void WaitForElementToBeVisible(string locator)
-       // {
-            //System.Threading.Thread.Sleep(700);
-            //WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(7));
-            //wait.Until(d => d.FindElement(By.XPath(locator)).Displayed);         
-        //}
+        internal static void ScrollToBeVisibleAndClick(string locator, int maxRetryCount = 8, int verticalScrollStepSize = 200)
+
+        {
+            IWebElement element = GetElement(locator);
+
+            bool isClickable = false;
+            int maxTries = maxRetryCount;
+            int currentTry = 0;
+
+            while (!isClickable)
+            {
+                try
+                {
+                    element.Click();
+                    isClickable = true;
+                }
+                catch (Exception exception)
+                {
+                    if (exception is ElementClickInterceptedException && currentTry < maxTries)
+                    {
+                        Driver.GetDriver().ExecuteJavaScript($"window.scrollBy(0, {verticalScrollStepSize})");
+                        currentTry++;
+                    }
+                    else
+                    {
+                        throw exception;
+                    }
+                }
+            }
+
+        }
+
+        internal static void SendKeys(string locator, string city)
+        {
+            Driver.GetDriver().FindElement(By.XPath(locator)).SendKeys(city); 
+        }
+
+        internal static void WaitForElementIsVisible(string locator)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            wait.Until(driver => driver.FindElement(By.XPath(locator)).Displayed);
+        }
     }
 }

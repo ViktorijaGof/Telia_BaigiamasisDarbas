@@ -50,7 +50,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TeliaTests\BaseTest.cs" />
-    <Compile Include="TeliaTests\Contracts and regulations.cs" />
+    <Compile Include="TeliaTests\FilterByColor.cs" />
+    <Compile Include="TeliaTests\Help.cs" />
     <Compile Include="TeliaTests\PurchaseAnItem.cs" />
     <Compile Include="TeliaTests\ServiceOrderRequest.cs" />
     <Compile Include="TeliaTests\Stores.cs" />

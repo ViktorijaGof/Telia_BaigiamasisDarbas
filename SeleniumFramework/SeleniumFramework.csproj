@@ -53,6 +53,7 @@
     <Compile Include="Driver.cs" />
     <Compile Include="Pages\Buttons.cs" />
     <Compile Include="Pages\Common.cs" />
+    <Compile Include="Pages\Homepage.cs" />
     <Compile Include="Pages\TextBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

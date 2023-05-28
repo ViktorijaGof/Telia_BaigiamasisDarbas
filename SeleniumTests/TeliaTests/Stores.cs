@@ -10,21 +10,23 @@ namespace SeleniumTests.TeliaTests
 
         public void Open()
         {
-            Buttons.Open();
+            Homepage.Open();
+            Homepage.AcceptCookies();
         }
 
         [Test]
 
-        public void FindStoresAdresss()
+        public void FindStoresNameAndAdresss()
         {
-           // string expectedResult = "";
-           // Buttons.clickSalonai();
-           // TextBox.TypeVilnius();
-           // Buttons.ClckFirstStore();
-          //  Buttons.ClickKaipNuvykti();
-            // NEBAIGTA
-          //  string actualResult = 
-           // Assert.AreEqual(expectedResult, actualResult);
+            string city = "Vilnius";
+            string expectedResult = "Ukmergės g. 369, Vilnius (PC BIG)";
+            Buttons.clickPagalba();
+            Buttons.ClickTeliaSalonai();
+            TextBox.EnterCity(city);
+            Buttons.ClickCityOption();
+            Buttons.ClckFirstStore();
+            string actualResult = TextBox.GetStoresNameAndAdress();
+            Assert.AreEqual(expectedResult, actualResult);
         }
-     }
+    }
 }
