@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using SeleniumFramework.Pages;
-using SeleniumFramework;
 
 namespace SeleniumTests.TeliaTests
 {

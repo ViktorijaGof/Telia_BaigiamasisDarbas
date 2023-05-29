@@ -1,9 +1,8 @@
 ﻿using NUnit.Framework;
 using SeleniumFramework.Pages;
-using System;
 namespace SeleniumTests.TeliaTests
 {
-    public class FilterByColor
+    public class FilterByColor : BaseTest
     {
         [SetUp]
 

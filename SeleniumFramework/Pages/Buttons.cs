@@ -1,5 +1,4 @@
-﻿
-namespace SeleniumFramework.Pages
+﻿namespace SeleniumFramework.Pages
 {
     public class Buttons
     {              
@@ -28,11 +27,11 @@ namespace SeleniumFramework.Pages
             Common.WaitForElementIsVisible(locator);
             Common.ScrollToBeVisibleAndClick(locator);
         }
-
+        
         public static void clickUzsakytiTelefonaBePlano()
         {
-            string locator = "(//*[contains(@class,'link-icon__text')])[2]";
-            Common.WaitForElementIsVisible(locator);
+            string locator = "//*[contains(@data-test,'cart-box-action-button')]";
+            System.Threading.Thread.Sleep(700);
             Common.Click(locator);
         }
 
@@ -55,26 +54,27 @@ namespace SeleniumFramework.Pages
             Common.Click(locator);
         }
 
-
         public static void ScrollAndClickDaugiau()
         {
-            string locator = "(//*[contains(@class,'btn btn-primary')])[1]";
-            Common.WaitForElementIsVisible(locator); 
+            string locator = "(//*[contains(@class,'pt-0 pb-0')])[1]"; 
             Common.ScrollToBeVisibleAndClick(locator);
         }
         
         public static void ClickNeturiu()
         {
             string locator = "(//*[contains(@data-test,'action--button')])[6]";
-            Common.WaitForElementIsVisible(locator); 
+            System.Threading.Thread.Sleep(700);
+            Common.SwitchToWindowByLocator(locator);
             Common.Click(locator);
+            Common.WaitForElementIsVisible(locator);
+            Common.SwitchToDefaultContetnt();
         }
 
-        public static void ClickDomina()
+        public static void ScrollAndClickDomina()
         {
-            string locator = "//*[contains(@class,'telia-button telia-button--primary')]";//NEPAKLIKINA
+            string locator = "//*[contains(@class,'telia-button telia-button--primary')]";
             Common.WaitForElementIsVisible(locator); 
-            Common.Click(locator);
+            Common.ScrollToBeVisibleAndClick(locator);
         }
 
         public static void clickPagalba()
@@ -126,8 +126,8 @@ namespace SeleniumFramework.Pages
 
         public static void ScrollAndCheckJuoda()
         {
-            string locator = "(//*[contains(@class,'facet-checkbox js-facet-checkbox')])[13]";
-            Common.ScrollToBeVisibleAndClick(locator);
+            string locator = "(//*[contains(@class,'facet__text')])[13]";
+            Common.ScrollToBeVisibleBlackAndClick(locator);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using SeleniumFramework;
 using SeleniumFramework.Pages;
 
 namespace SeleniumTests.TeliaTests
@@ -16,7 +15,7 @@ namespace SeleniumTests.TeliaTests
 
         [Test]
 
-        public void AddItemToChart()
+        public void AddItemToCart()
         {
             string expectedItemName = "Samsung Galaxy S22";
             string expectedPrice = "634,25 €";

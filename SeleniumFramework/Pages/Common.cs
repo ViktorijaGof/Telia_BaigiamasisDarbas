@@ -27,7 +27,7 @@ namespace SeleniumFramework.Pages
             return GetElement(locator).Text;
         }
 
-        internal static void ScrollToBeVisibleAndClick(string locator, int maxRetryCount = 8, int verticalScrollStepSize = 200)
+        internal static void ScrollToBeVisibleAndClick(string locator, int maxRetryCount = 20, int verticalScrollStepSize = 200)
 
         {
             IWebElement element = GetElement(locator);
@@ -66,8 +66,50 @@ namespace SeleniumFramework.Pages
 
         internal static void WaitForElementIsVisible(string locator)
         {
-            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(15));
             wait.Until(driver => driver.FindElement(By.XPath(locator)).Displayed);
         }
+                
+        internal static void SwitchToWindowByLocator(string locator)
+        {
+            IWebElement element = GetElement(locator);
+            Driver.GetDriver().SwitchTo().Frame(element);
+        }
+               
+        internal static void SwitchToDefaultContetnt()
+        {
+            Driver.GetDriver().SwitchTo().DefaultContent();
+        }
+
+        internal static void ScrollToBeVisibleBlackAndClick(string locator, int maxRetryCount = 150, int verticalScrollStepSize = 1000)
+
+        {
+                IWebElement element = GetElement(locator);
+
+                bool isClickable = false;
+                int maxTries = maxRetryCount;
+                int currentTry = 0;
+
+                while (!isClickable)
+                {
+                    try
+                    {
+                        element.Click();
+                        isClickable = true;
+                    }
+                    catch (Exception exception)
+                    {
+                        if (exception is ElementClickInterceptedException && currentTry < maxTries)
+                        {
+                            Driver.GetDriver().ExecuteJavaScript($"window.scrollBy(0, {verticalScrollStepSize})");
+                            currentTry++;
+                        }
+                        else
+                        {
+                            throw exception;
+                        }
+                    }
+                }
+        }
     }
-}
+}  

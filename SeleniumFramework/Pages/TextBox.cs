@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SeleniumFramework.Pages
+﻿namespace SeleniumFramework.Pages
 {
     public class TextBox
     {
@@ -9,12 +7,11 @@ namespace SeleniumFramework.Pages
         {                               
             string locator = "(//*[contains(@class,'cart-box-product-card__title')])[1]";
             return Common.GetElementText(locator);
-
         }
 
         public static string GetItemPrice()
         {
-            string locator = "//*[contains(@class,'fade-enter fade-enter-active cart-box-total-price-block__price')]";//PAKLAUSTI Del 6ito: kodel ima 5.25 autorin5 mokest5?
+            string locator = "//*[contains(@class,'fade-enter fade-enter-active cart-box-total-price-block__price')]";
             return Common.GetElementText(locator);
         }
 
@@ -22,7 +19,11 @@ namespace SeleniumFramework.Pages
 
         {
             string locator = "//*[contains(@class,'form-block__title')]";
-            return Common.GetElementText(locator);
+            Common.SwitchToWindowByLocator(locator);
+            Common.WaitForElementIsVisible(locator);
+            string requestHeading = Common.GetElementText(locator);
+            Common.SwitchToDefaultContetnt(); 
+            return requestHeading;
         }
 
         public static void EnterCity(string city)
@@ -39,7 +40,7 @@ namespace SeleniumFramework.Pages
 
         public static string GetProblemsHeading()
         {
-            string locator = "//*[contains(@class='GroupTitlestyles__GroupTitle-sc-1w6b7v2-0 TopicGroupstyles__TopicGroupTitle-sc-pnvx8x-0 ELxex bcJeni telia-heading--title-100 hydrated')]"; //Nerandu tinkamo lokatoriaus
+            string locator = "//*[contains(@class,'GroupTitlestyles__')]"; //Nerandu tinkamo lokatoriaus
             Common.WaitForElementIsVisible(locator); 
             return Common.GetElementText(locator);
         }
@@ -47,6 +48,7 @@ namespace SeleniumFramework.Pages
         public static string GetColorName()
         {
             string locator = "(//*[contains(@class,'tool tool__remove-filter')])[1]";
+            Common.WaitForElementIsVisible(locator);
             return Common.GetElementText(locator);
         }     
     }

@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using SeleniumFramework;
 using SeleniumFramework.Pages;
 
 namespace SeleniumTests.TeliaTests
@@ -22,8 +21,8 @@ namespace SeleniumTests.TeliaTests
             Buttons.clickPaslaugos();
             Buttons.clickInternetas();
             Buttons.ScrollAndClickDaugiau();
-            Buttons.ClickNeturiu();
-            Buttons.ClickDomina();
+            Buttons.ClickNeturiu();          
+            Buttons.ScrollAndClickDomina();
             string actualResult = TextBox.GetServiceRequestHeading();
             Assert.AreEqual(expectedResult, actualResult);
         }

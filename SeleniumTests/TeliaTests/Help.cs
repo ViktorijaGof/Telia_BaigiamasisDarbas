@@ -3,7 +3,7 @@ using SeleniumFramework.Pages;
 
 namespace SeleniumTests.TeliaTests
 {
-    internal class Help
+    internal class Help : BaseTest
     {
         [SetUp]
 
