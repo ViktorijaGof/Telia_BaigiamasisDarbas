@@ -5,23 +5,22 @@
         public static string GetItemName()
         {                               
             string locator = "(//*[contains(@class,'cart-box-product-card__title')])[1]";
+            Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);
         }
 
         public static string GetItemPrice()
         {
             string locator = "//*[contains(@class,'fade-enter fade-enter-active cart-box-total-price-block__price')]";
+            Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);
         }
 
         public static string GetServiceRequestHeading()
         {
             string locator = "//*[contains(@class,'form-block__title')]";
-            Common.SwitchToFrameByLocator(locator);
             Common.WaitForElementToBeVisible(locator);
-            string requestHeading = Common.GetElementText(locator);
-            Common.SwitchToDefaultContent(); 
-            return requestHeading;
+            return Common.GetElementText(locator);
         }
 
         public static void EnterCity(string city)

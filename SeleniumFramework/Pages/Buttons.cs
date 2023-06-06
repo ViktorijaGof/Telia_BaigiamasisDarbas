@@ -63,11 +63,8 @@
         public static void ClickNeturiu()
         {
             string locator = "(//*[contains(@data-test,'action--button')])[6]";
-            System.Threading.Thread.Sleep(700);
-            Common.SwitchToFrameByLocator(locator);
-            Common.Click(locator);
             Common.WaitForElementToBeVisible(locator);
-            Common.SwitchToDefaultContent();
+            Common.Click(locator);
         }
 
         public static void ScrollAndClickDomina()

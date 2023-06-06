@@ -64,16 +64,5 @@ namespace SeleniumFramework.Pages
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(15));
             wait.Until(driver => driver.FindElement(By.XPath(locator)).Displayed);
         }
-                
-        internal static void SwitchToFrameByLocator(string locator)
-        {
-            IWebElement element = GetElement(locator);
-            Driver.GetDriver().SwitchTo().Frame(element);
-        }
-               
-        internal static void SwitchToDefaultContent()
-        {
-            Driver.GetDriver().SwitchTo().DefaultContent();
-        }
     }
 }  
