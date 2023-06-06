@@ -12,8 +12,8 @@
 | 1.1.4.      | Check "Be plano" in "Mokėjimo būdas" section.                     |                                                                                      |
 | 1.1.5.      | Click on "Užsakyti".                                              |This action should lead to the Order summary page.                                    |
 | 1.1.6.      | Click on "Užsakyti".                                              |This action should lead to the Order page, where person needs to log in / sign        |
-| 2.          | Service order request                                             |                                                                                      |
-| 2.1.        | Selecting service and sending an order request.                   |                                                                                      |
+| **2.**          | **Service order request**                                             |                                                                                      |
+| ***2.1.***        | ***Selecting service and sending an order request.***                   |                                                                                      |
 | 2.1.1.      | Click on „Paslaugos“ section.                                     |                                                                                      | 
 | 2.1.2.      | Click on "Internetas".                                            |This action should lead to the Internet type list page.                               |
 | 2.1.3.      | Click on "Daugiau" below "Šviesolaidis - namams mieste".          |This action should lead to the Internet plans list page.  
