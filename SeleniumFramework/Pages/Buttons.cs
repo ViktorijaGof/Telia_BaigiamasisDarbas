@@ -25,13 +25,15 @@
         {
             string locator = "(//*[@data-test='b2c_contract_type_selector']//*[contains(@class,'selector-button-group__variant') and not(contains(@class,'container'))])[2]";
             Common.WaitForElementToBeVisible(locator);
-            Common.ScrollToBeVisibleAndClick(locator);
+            Common.Click(locator);
         }
         
         public static void ClickUzsakytiTelefonaBePlano()
         {
-            string locator = "//*[contains(@data-test,'cart-box-action-button')]";
-            System.Threading.Thread.Sleep(700);
+            string locatorDisabled = "//*[@data-test='cart-box-action-button' and contains(@class,'disabled')]";
+            string locator = "//*[@data-test='cart-box-action-button']";
+            Common.WaitForElementToNotBePresent(locatorDisabled);
+
             Common.Click(locator);
         }
 
@@ -56,7 +58,7 @@
 
         public static void ScrollAndClickDaugiau()
         {
-            string locator = "(//*[contains(@class,'pt-0 pb-0')])[1]"; 
+            string locator = "(//*[contains(@class,'pt-0 pb-0')])[1]";
             Common.ScrollToBeVisibleAndClick(locator);
         }
         
