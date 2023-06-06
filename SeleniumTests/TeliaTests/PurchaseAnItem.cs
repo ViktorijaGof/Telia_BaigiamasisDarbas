@@ -10,14 +10,14 @@ namespace SeleniumTests.TeliaTests
         {
             string expectedItemName = "Samsung Galaxy S22";
             string expectedPrice = "634,25 €";
-            Buttons.clickEParduotuve();
-            Buttons.clickTelefonai();
+            Buttons.ClickEParduotuve();
+            Buttons.ClickTelefonai();
             Buttons.ClickonFirstItem();
             Buttons.ScrollAndClickBePlano();
-            Buttons.clickUzsakytiTelefonaBePlano();
+            Buttons.ClickUzsakytiTelefonaBePlano();
             string actualItemName = TextBox.GetItemName();
             string actualPrice  = TextBox.GetItemPrice();
-            Buttons.clickUzsakytiUzsakymoSuvestine();
+            Buttons.ClickUzsakytiUzsakymoSuvestine();
             Assert.AreEqual(expectedItemName, actualItemName);
             Assert.AreEqual(expectedPrice, actualPrice);
         }

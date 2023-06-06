@@ -17,11 +17,6 @@ namespace SeleniumFramework.Pages
             GetElement(locator).Click();
         }
 
-        internal static void SendKeysToElement(string locator, string keys)
-        {
-            GetElement(locator).SendKeys(keys);
-        }
-
         internal static string GetElementText(string locator)
         {
             return GetElement(locator).Text;
@@ -59,57 +54,26 @@ namespace SeleniumFramework.Pages
 
         }
 
-        internal static void SendKeys(string locator, string city)
+        internal static void SendKeys(string locator, string keys)
         {
-            Driver.GetDriver().FindElement(By.XPath(locator)).SendKeys(city); 
+            GetElement(locator).SendKeys(keys);
         }
 
-        internal static void WaitForElementIsVisible(string locator)
+        internal static void WaitForElementToBeVisible(string locator)
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(15));
             wait.Until(driver => driver.FindElement(By.XPath(locator)).Displayed);
         }
                 
-        internal static void SwitchToWindowByLocator(string locator)
+        internal static void SwitchToFrameByLocator(string locator)
         {
             IWebElement element = GetElement(locator);
             Driver.GetDriver().SwitchTo().Frame(element);
         }
                
-        internal static void SwitchToDefaultContetnt()
+        internal static void SwitchToDefaultContent()
         {
             Driver.GetDriver().SwitchTo().DefaultContent();
-        }
-
-        internal static void ScrollToBeVisibleBlackAndClick(string locator, int maxRetryCount = 150, int verticalScrollStepSize = 1000)
-
-        {
-                IWebElement element = GetElement(locator);
-
-                bool isClickable = false;
-                int maxTries = maxRetryCount;
-                int currentTry = 0;
-
-                while (!isClickable)
-                {
-                    try
-                    {
-                        element.Click();
-                        isClickable = true;
-                    }
-                    catch (Exception exception)
-                    {
-                        if (exception is ElementClickInterceptedException && currentTry < maxTries)
-                        {
-                            Driver.GetDriver().ExecuteJavaScript($"window.scrollBy(0, {verticalScrollStepSize})");
-                            currentTry++;
-                        }
-                        else
-                        {
-                            throw exception;
-                        }
-                    }
-                }
         }
     }
 }  

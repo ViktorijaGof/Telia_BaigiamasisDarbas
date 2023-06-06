@@ -10,7 +10,7 @@ namespace SeleniumTests.TeliaTests
         {
             string city = "Vilnius";
             string expectedResult = "Ukmergės g. 369, Vilnius (PC BIG)";
-            Buttons.clickPagalba();
+            Buttons.ClickPagalba();
             Buttons.ClickTeliaSalonai();
             TextBox.EnterCity(city);
             Buttons.ClickCityOption();

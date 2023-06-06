@@ -9,8 +9,8 @@ namespace SeleniumTests.TeliaTests
 
         {
             string expectedColor = "Juoda";
-            Buttons.clickEParduotuve();
-            Buttons.clickLaikrodžiaiIrApyrankės();
+            Buttons.ClickEParduotuve();
+            Buttons.ClickLaikrodžiaiIrApyrankės();
             Buttons.ScrollAndCheckJuoda();
             string actualColor = TextBox.GetColorName();
             Assert.AreEqual(expectedColor, actualColor);

@@ -12,6 +12,5 @@
             string locator = "//*[contains(@class,'js-cookie-modal-accept-necessary')]";
             Common.Click(locator);
         }
-
     }
 }

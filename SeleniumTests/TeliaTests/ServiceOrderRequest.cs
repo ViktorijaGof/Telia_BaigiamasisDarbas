@@ -9,8 +9,8 @@ namespace SeleniumTests.TeliaTests
         public void SelectServiceAndSendOrderRequest()
         {
             string expectedResult = "Gaukite „Telia“ pasiūlymą";
-            Buttons.clickPaslaugos();
-            Buttons.clickInternetas();
+            Buttons.ClickPaslaugos();
+            Buttons.ClickInternetas();
             Buttons.ScrollAndClickDaugiau();
             Buttons.ClickNeturiu();          
             Buttons.ScrollAndClickDomina();

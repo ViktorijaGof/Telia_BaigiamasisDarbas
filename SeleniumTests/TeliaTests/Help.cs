@@ -9,7 +9,7 @@ namespace SeleniumTests.TeliaTests
         public void FindInformationAboutAProblem()
         {
             string expectedResult = "Bendra informacija";
-            Buttons.clickPagalba();
+            Buttons.ClickPagalba();
             Buttons.ClickSutrikimai();
             Buttons.ClickNamuInternetas();
             string actualResult = TextBox.GetProblemsHeading();
