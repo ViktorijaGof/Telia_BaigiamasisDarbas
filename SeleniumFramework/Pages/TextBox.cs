@@ -1,4 +1,6 @@
-﻿namespace SeleniumFramework.Pages
+﻿using System;
+
+namespace SeleniumFramework.Pages
 {
     public class TextBox
     {
@@ -47,6 +49,13 @@
             string locator = "(//*[contains(@class,'tool tool__remove-filter')])[1]";
             Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);
-        }     
+        }
+
+        public static bool CheckThatAllProductsContainExpectedColor(string expectedColorCode)
+        {
+            string productElementLocator = "//*[contains(@class,'card__product')]";
+            string colorElementLocator = $"//*[@class='mobile-color-label ' and @style='background-color:{expectedColorCode}']";
+            return Common.CheckThatEachParentElementContainsChildElement(productElementLocator, colorElementLocator);
+        }
     }
 }

@@ -8,14 +8,13 @@ namespace SeleniumTests.TeliaTests
         [Test]
         public void SelectProductTypeAndColor()
         {
-            string expectedColor = "Juoda";
+            string expectedColorCode = "#222222";
 
             Buttons.ClickEParduotuve();
             Buttons.ClickLaikrodžiaiIrApyrankės();
-            Buttons.ScrollAndCheckJuoda();
-            string actualColor = TextBox.GetColorName();
+            Buttons.CheckColorFilterJuoda();
 
-            Assert.AreEqual(expectedColor, actualColor);
+            Assert.IsTrue(TextBox.CheckThatAllProductsContainExpectedColor(expectedColorCode));
         }
     }
 }

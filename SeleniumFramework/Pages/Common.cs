@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
 
 namespace SeleniumFramework.Pages
 {
@@ -10,6 +11,16 @@ namespace SeleniumFramework.Pages
         private static IWebElement GetElement(string locator)
         {
             return Driver.GetDriver().FindElement(By.XPath(locator));
+        }
+
+        private static IList<IWebElement> GetElements(string locator)
+        {
+            return Driver.GetDriver().FindElements(By.XPath(locator));
+        }
+
+        private static IWebElement GetElementInsideParentElement(IWebElement parentElement, string locator)
+        {
+            return parentElement.FindElement(By.XPath(locator));
         }
 
         internal static void Click(string locator)
@@ -63,6 +74,25 @@ namespace SeleniumFramework.Pages
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(15));
             wait.Until(driver => driver.FindElement(By.XPath(locator)).Displayed);
+        }
+
+        internal static bool CheckThatEachParentElementContainsChildElement(string parentElementLocator, string childElementLocator)
+        {
+            IList<IWebElement> elements = GetElements(parentElementLocator);
+
+            foreach (IWebElement element in elements)
+            {
+                try
+                {
+                    GetElementInsideParentElement(element, childElementLocator);
+                }
+                catch (NoSuchElementException)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }  

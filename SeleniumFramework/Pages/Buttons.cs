@@ -121,10 +121,10 @@
             Common.Click(locator);
         }
 
-        public static void ScrollAndCheckJuoda()
+        public static void CheckColorFilterJuoda()
         {
-            string locator = "(//*[contains(@class,'facet__text')])[13]";
-            Common.ScrollToBeVisibleAndClick(locator, 150, 1000);
+            string locator = "(//*[contains(@class,'facet__text')])[13]//label";
+            Common.Click(locator);
         }
     }
 }    
