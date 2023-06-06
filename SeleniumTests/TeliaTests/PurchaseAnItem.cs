@@ -5,16 +5,7 @@ namespace SeleniumTests.TeliaTests
 {
     public class PurchaseAnItem : BaseTest
     {
-        [SetUp]
-
-        public void Open()
-        {
-            Homepage.Open();
-            Homepage.AcceptCookies();
-        }
-
         [Test]
-
         public void AddItemToCart()
         {
             string expectedItemName = "Samsung Galaxy S22";

@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework.Interfaces;
 using NUnit.Framework;
 using SeleniumFramework;
+using SeleniumFramework.Pages;
 
 namespace SeleniumTests.TeliaTests
 {
@@ -10,6 +11,8 @@ namespace SeleniumTests.TeliaTests
         public void SetUp()
         {
             Driver.InitializeDriver();
+            Homepage.Open();
+            Homepage.AcceptCookies();
         }
 
         [TearDown]

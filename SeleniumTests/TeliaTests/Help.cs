@@ -5,16 +5,7 @@ namespace SeleniumTests.TeliaTests
 {
     internal class Help : BaseTest
     {
-        [SetUp]
-
-        public void Open()
-        {
-            Homepage.Open();
-            Homepage.AcceptCookies();
-        }
-
         [Test]
-
         public void FindInformationAboutAProblem()
         {
             string expectedResult = "Bendra informacija";

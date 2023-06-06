@@ -5,16 +5,7 @@ namespace SeleniumTests.TeliaTests
 {
     public class Stores : BaseTest
     {
-        [SetUp]
-
-        public void Open()
-        {
-            Homepage.Open();
-            Homepage.AcceptCookies();
-        }
-
         [Test]
-
         public void FindStoresNameAndAdresss()
         {
             string city = "Vilnius";

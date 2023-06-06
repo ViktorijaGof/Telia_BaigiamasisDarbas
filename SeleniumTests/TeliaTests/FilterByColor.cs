@@ -4,16 +4,7 @@ namespace SeleniumTests.TeliaTests
 {
     public class FilterByColor : BaseTest
     {
-        [SetUp]
-
-        public void Open()
-        {
-            Homepage.Open();
-            Homepage.AcceptCookies();
-        }
-
         [Test]
-
         public void SelectProductTypeAndColor()
 
         {
