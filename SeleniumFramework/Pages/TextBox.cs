@@ -28,12 +28,14 @@ namespace SeleniumFramework.Pages
         public static void EnterCity(string city)
         {
             string locator = "(//*[contains(@class,'new-search__input')])[2]";
+            Common.WaitForElementToBeVisible(locator);
             Common.SendKeys(locator, city);
         }
 
         public static string GetStoresNameAndAdress()
         {
             string locator = "//*[contains(@class,'card-salon__header')]";
+            Common.WaitForElementToBeVisible(locator);
             return Common.GetElementText(locator);                 
         }
 
