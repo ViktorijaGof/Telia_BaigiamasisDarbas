@@ -9,10 +9,12 @@ namespace SeleniumTests.TeliaTests
 
         {
             string expectedColor = "Juoda";
+
             Buttons.ClickEParduotuve();
             Buttons.ClickLaikrodžiaiIrApyrankės();
             Buttons.ScrollAndCheckJuoda();
             string actualColor = TextBox.GetColorName();
+
             Assert.AreEqual(expectedColor, actualColor);
         }
 

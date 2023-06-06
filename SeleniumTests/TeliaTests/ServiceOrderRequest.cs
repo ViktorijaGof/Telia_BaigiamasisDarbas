@@ -9,12 +9,14 @@ namespace SeleniumTests.TeliaTests
         public void SelectServiceAndSendOrderRequest()
         {
             string expectedResult = "Gaukite „Telia“ pasiūlymą";
+
             Buttons.ClickPaslaugos();
             Buttons.ClickInternetas();
             Buttons.ScrollAndClickDaugiau();
             Buttons.ClickNeturiu();          
             Buttons.ScrollAndClickDomina();
             string actualResult = TextBox.GetServiceRequestHeading();
+
             Assert.AreEqual(expectedResult, actualResult);
         }
     }
