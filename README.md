@@ -4,8 +4,8 @@
 
 | ID          | Description                                                       |Expected result                                                                       |
 | ----------- | -----------                                                       |-----------                                                                           |
-| ### 1.          | ### Purchase                                                          |                                                                                     |
-| **1.1.**        | **Adding an item to the shopping cart.**                              |                                                                                     |
+| **1.**          | **Purchase**                                                          |                                                                                     |
+| ***1.1.***        | ***Adding an item to the shopping cart.***                              |                                                                                     |
 | 1.1.1.      | Click on „E.parduotuvė“ section.                                  |                                                                                      |
 | 1.1.2.      | Click on "Telefonai".                                             |This action should lead to the Item list page.                                        |
 | 1.1.3.      | Select first item.                                                |This action should lead to the Selected item page.                                    |
