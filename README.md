@@ -1,6 +1,6 @@
-# Telia_BaigiamasisDarbas
+# Telia Baigiamasis Darbas
 
-## Telia nuoroda: [link] https://www.telia.lt/
+## [Nuoroda](https://www.telia.lt/) į svetainę
 
 | ID          | Description                                                       |Expected result                                                                       |
 | ----------- | -----------                                                       |-----------                                                                           |
