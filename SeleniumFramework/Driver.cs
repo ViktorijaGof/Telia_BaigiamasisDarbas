@@ -13,8 +13,8 @@ namespace SeleniumFramework
         {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
-           
         }
+
         internal static IWebDriver GetDriver()
         {
             return driver;
@@ -24,10 +24,12 @@ namespace SeleniumFramework
         {
             driver.Url = url;
         }
+
         public static void ShutdownDriver()
         {
             driver.Quit();
         }
+
         public static string TakeScreenshot(string methodName)
         {
             string screenshotDirectoryPath = $"{AppDomain.CurrentDomain.BaseDirectory}Screenshots";

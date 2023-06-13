@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Collections.Generic;
 
 namespace SeleniumFramework.Pages
 {
@@ -12,14 +13,19 @@ namespace SeleniumFramework.Pages
             return Driver.GetDriver().FindElement(By.XPath(locator));
         }
 
+        private static IList<IWebElement> GetElements(string locator)
+        {
+            return Driver.GetDriver().FindElements(By.XPath(locator));
+        }
+
+        private static IWebElement GetElementInsideParentElement(IWebElement parentElement, string locator)
+        {
+            return parentElement.FindElement(By.XPath(locator));
+        }
+
         internal static void Click(string locator)
         {
             GetElement(locator).Click();
-        }
-
-        internal static void SendKeysToElement(string locator, string keys)
-        {
-            GetElement(locator).SendKeys(keys);
         }
 
         internal static string GetElementText(string locator)
@@ -59,57 +65,57 @@ namespace SeleniumFramework.Pages
 
         }
 
-        internal static void SendKeys(string locator, string city)
+        internal static void SendKeys(string locator, string keys)
         {
-            Driver.GetDriver().FindElement(By.XPath(locator)).SendKeys(city); 
+            GetElement(locator).SendKeys(keys);
         }
 
-        internal static void WaitForElementIsVisible(string locator)
+        internal static void WaitForElementToBeVisible(string locator)
         {
             WebDriverWait wait = new WebDriverWait(Driver.GetDriver(), TimeSpan.FromSeconds(15));
             wait.Until(driver => driver.FindElement(By.XPath(locator)).Displayed);
         }
-                
-        internal static void SwitchToWindowByLocator(string locator)
+
+        internal static bool CheckThatEachParentElementContainsChildElement(string parentElementLocator, string childElementLocator)
         {
-            IWebElement element = GetElement(locator);
-            Driver.GetDriver().SwitchTo().Frame(element);
-        }
-               
-        internal static void SwitchToDefaultContetnt()
-        {
-            Driver.GetDriver().SwitchTo().DefaultContent();
-        }
+            IList<IWebElement> elements = GetElements(parentElementLocator);
 
-        internal static void ScrollToBeVisibleBlackAndClick(string locator, int maxRetryCount = 150, int verticalScrollStepSize = 1000)
-
-        {
-                IWebElement element = GetElement(locator);
-
-                bool isClickable = false;
-                int maxTries = maxRetryCount;
-                int currentTry = 0;
-
-                while (!isClickable)
+            foreach (IWebElement element in elements)
+            {
+                try
                 {
-                    try
-                    {
-                        element.Click();
-                        isClickable = true;
-                    }
-                    catch (Exception exception)
-                    {
-                        if (exception is ElementClickInterceptedException && currentTry < maxTries)
-                        {
-                            Driver.GetDriver().ExecuteJavaScript($"window.scrollBy(0, {verticalScrollStepSize})");
-                            currentTry++;
-                        }
-                        else
-                        {
-                            throw exception;
-                        }
-                    }
+                    GetElementInsideParentElement(element, childElementLocator);
                 }
+                catch (NoSuchElementException)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        internal static void WaitForElementToNotBePresent(string locator)
+        {
+            int maxRetries = 20;
+            int currentTry = 0;
+            while(currentTry < maxRetries)
+            {
+                try
+                {
+                    GetElement(locator);
+                    System.Threading.Thread.Sleep(50);
+                    currentTry++;
+                }
+                catch (NoSuchElementException)
+                {
+                    return;
+                }
+                catch (StaleElementReferenceException)
+                {
+                    return;
+                }
+            }
         }
     }
 }  

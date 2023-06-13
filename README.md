@@ -1,19 +1,19 @@
-# Telia_BaigiamasisDarbas
+# Telia Baigiamasis Darbas
 
-## Telia nuoroda: [link] https://www.telia.lt/
+## [Nuoroda](https://www.telia.lt/) į svetainę
 
 | ID          | Description                                                       |Expected result                                                                       |
 | ----------- | -----------                                                       |-----------                                                                           |
-| 1.          | Purchase                                                          |                                                                                     |
-| 1.1.        | Adding an item to the shopping cart.                              |                                                                                     |
+| **1.**          | **Purchase**                                                          |                                                                                     |
+| ***1.1.***        | ***Adding an item to the shopping cart.***                              |                                                                                     |
 | 1.1.1.      | Click on „E.parduotuvė“ section.                                  |                                                                                      |
 | 1.1.2.      | Click on "Telefonai".                                             |This action should lead to the Item list page.                                        |
 | 1.1.3.      | Select first item.                                                |This action should lead to the Selected item page.                                    |
 | 1.1.4.      | Check "Be plano" in "Mokėjimo būdas" section.                     |                                                                                      |
 | 1.1.5.      | Click on "Užsakyti".                                              |This action should lead to the Order summary page.                                    |
 | 1.1.6.      | Click on "Užsakyti".                                              |This action should lead to the Order page, where person needs to log in / sign        |
-| 2.          | Service order request                                             |                                                                                      |
-| 2.1.        | Selecting service and sending an order request.                   |                                                                                      |
+| **2.**          | **Service order request**                                             |                                                                                      |
+| ***2.1.***        | ***Selecting service and sending an order request.***                   |                                                                                      |
 | 2.1.1.      | Click on „Paslaugos“ section.                                     |                                                                                      | 
 | 2.1.2.      | Click on "Internetas".                                            |This action should lead to the Internet type list page.                               |
 | 2.1.3.      | Click on "Daugiau" below "Šviesolaidis - namams mieste".          |This action should lead to the Internet plans list page.  
